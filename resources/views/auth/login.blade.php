@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | Log in</title>
+        <title>Login | Thesis Book Archiving</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -17,6 +17,9 @@
         <!-- iCheck -->
         <link rel="stylesheet" href="/cms-assets/plugins/iCheck/square/blue.css">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+        <!--end::Base Styles -->
+        <link rel="shortcut icon" href="/logo.png" />
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -43,6 +46,9 @@
                         <input type="password" class="form-control" placeholder="Password" name="password">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
+                    @if (session()->has('login-error'))
+                    <p class="text-red">Invalid username or password. Please try again.</p>
+                    @endif
                     <div class="row">
                         <!-- /.col -->
                         <div class="col-xs-4">
