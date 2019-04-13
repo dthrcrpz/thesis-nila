@@ -108,6 +108,7 @@
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 @include('includes.validation-errors')
+                @include('includes.success-messages')
                 @yield('content')
             </div>
 

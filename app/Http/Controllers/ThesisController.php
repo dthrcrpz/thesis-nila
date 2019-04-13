@@ -62,6 +62,7 @@ class ThesisController extends Controller
             'abstract' => $uploadedFile,
         ]);
 
+        session()->flash('message', 'Thesis has been added');
         return redirect('/theses');
     }
 
@@ -108,6 +109,7 @@ class ThesisController extends Controller
     public function destroy(Research $thesis)
     {
         $thesis->delete();
+        session()->flash('message', 'Thesis has been deleted');
         return back();   
     }
 }
