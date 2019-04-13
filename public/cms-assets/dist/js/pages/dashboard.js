@@ -1,3 +1,12 @@
+$('.btn-delete').click(function () {
+  let url = $(this).data('url')
+  $('#delete-form').attr('action', url)
+})
+
+$('.confirm-delete').click(function () {
+  $('#delete-form').submit()
+})
+
 /*
  * Author: Abdullah A Almsaeed
  * Date: 4 Jan 2014

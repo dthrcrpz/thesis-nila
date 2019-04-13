@@ -32,7 +32,7 @@
 								<td>{{ $thesis->year }}</td>
 								<td>
 									<button type="button" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View Details</button>
-									<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+									<button type="button" data-url="/theses/{{ $thesis->id }}" class="btn btn-delete btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i> Delete</button>
 								</td>
 							</tr>
 							@endforeach

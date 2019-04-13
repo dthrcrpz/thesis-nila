@@ -71,7 +71,7 @@ class ThesisController extends Controller
      * @param  \App\Research  $research
      * @return \Illuminate\Http\Response
      */
-    public function show(Research $research)
+    public function show(Research $thesis)
     {
         //
     }
@@ -82,7 +82,7 @@ class ThesisController extends Controller
      * @param  \App\Research  $research
      * @return \Illuminate\Http\Response
      */
-    public function edit(Research $research)
+    public function edit(Research $thesis)
     {
         //
     }
@@ -94,7 +94,7 @@ class ThesisController extends Controller
      * @param  \App\Research  $research
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Research $research)
+    public function update(Request $request, Research $thesis)
     {
         //
     }
@@ -105,8 +105,9 @@ class ThesisController extends Controller
      * @param  \App\Research  $research
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Research $research)
+    public function destroy(Research $thesis)
     {
-        //
+        $thesis->delete();
+        return back();   
     }
 }
