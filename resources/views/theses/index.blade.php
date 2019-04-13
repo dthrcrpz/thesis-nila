@@ -26,13 +26,16 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach ($theses as $thesis)
 							<tr>
-								<td>Sample</td>
-								<td>2017</td>
+								<td>{{ $thesis->title }}</td>
+								<td>{{ $thesis->year }}</td>
 								<td>
 									<button type="button" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View Details</button>
+									<button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
 								</td>
 							</tr>
+							@endforeach
 						</tbody>
 						<tfoot>
 						<tr>

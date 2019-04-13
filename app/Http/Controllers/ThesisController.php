@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Research;
 use Illuminate\Http\Request;
+use Storage;
 
 class ThesisController extends Controller
 {
@@ -15,7 +16,8 @@ class ThesisController extends Controller
     public function index()
     {
         $title = 'Theses';
-        return view('theses.index', compact('title'));
+        $theses = Research::orderBy('title')->get();
+        return view('theses.index', compact('title', 'theses'));
     }
 
     /**
@@ -45,7 +47,22 @@ class ThesisController extends Controller
             'abstract' => 'required|mimes:pdf,docx',
         ]);
 
-        return $r;
+        if ($r->hasFile('abstract')) {
+            $file = $r->file('abstract');
+            $name = $file->getClientOriginalName();
+            $filePath = 'abstracts/' . $name;
+            Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
+            $uploadedFile = Storage::disk('s3')->url($filePath);
+        }
+
+        $research = Research::create([
+            'title' => $r->title,
+            'year' => $r->year,
+            'authors' => $r->authors,
+            'abstract' => $uploadedFile,
+        ]);
+
+        return redirect('/theses');
     }
 
     /**
