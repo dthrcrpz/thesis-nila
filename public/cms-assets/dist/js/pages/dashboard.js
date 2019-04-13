@@ -1,3 +1,15 @@
+$('.btn-view').click(function () {
+  let data = $(this).data('data')
+  $('.info-title').html(data.title)
+  $('.info-year').html(data.year)
+  $('.info-authors').html(data.authors)
+
+  $('.info-abstract-link').html(data.abstract)
+  $('.info-abstract-link').attr('href', data.abstract)
+
+  $('.info-total-downloads').html(data.title)
+})
+
 $('.btn-delete').click(function () {
   let url = $(this).data('url')
   $('#delete-form').attr('action', url)

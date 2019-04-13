@@ -13,7 +13,7 @@
         <!-- Ionicons -->
         <link rel="stylesheet" href="/cms-assets/bower_components/Ionicons/css/ionicons.min.css">
         <!-- DataTables -->
-      <link rel="stylesheet" href="/cms-assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="/cms-assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="/cms-assets/dist/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -112,24 +112,8 @@
                 @yield('content')
             </div>
 
-            <div class="modal modal-default fade" id="delete-modal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Confirmation</h4>
-                        </div>
-                        <div class="modal-body">
-                           <p>Are you sure you want to delete this item?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                            <button type="button" class="btn btn-danger confirm-delete">Yes, delete it</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('includes.delete-confirmation')
+            @include('includes.view-modal')
 
             <!-- /.content-wrapper -->
             <footer class="main-footer">

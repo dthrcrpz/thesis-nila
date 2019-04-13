@@ -19,6 +19,7 @@ class CreateResearchesTable extends Migration
             $table->string('year');
             $table->string('abstract');
             $table->text('authors');
+            $table->integer('total_downloads')->default(0);
             $table->timestamps();
         });
     }
