@@ -61,20 +61,20 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="/logo.png" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">Alexander Pierce</span>
+                                    <span class="hidden-xs">{{ auth()->user()->name }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="/logo.png" class="img-circle" alt="User Image">
                                         <p>
-                                            Alexander Pierce
-                                            <small>Student</small>
+                                            {{ auth()->user()->name }}
+                                            <small>{{ (auth()->user()->role == 0) ? 'Admin' : 'Student' }}</small>
                                         </p>
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="javascript:void(0)" class="btn btn-default btn-flat">Account Settings</a>
+                                            <a href="/my-account" class="btn btn-default btn-flat">My Account</a>
                                         </div>
                                         <div class="pull-right">
                                             <a href="javascript:void(0)" class="btn btn-info btn-flat btn-logout">Logout</a>
@@ -97,10 +97,6 @@
                         <li class="{{ setActive('/') }}"><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                         <li class="{{ setActive('theses') }}"><a href="/theses"><i class="fa fa-book"></i> <span>Theses</span></a></li>
                         <li class="{{ setActive('users') }}"><a href="/users"><i class="fa fa-users"></i> <span>Users</span></a></li>
-                        <li class="header">LABELS</li>
-                        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-                        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-                        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
