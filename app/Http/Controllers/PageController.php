@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index () {
-    	return view('layouts.master');
+    	$title = 'Thesis Book Archiving System';
+    	return view('layouts.master', compact('title'));
     }
 }
