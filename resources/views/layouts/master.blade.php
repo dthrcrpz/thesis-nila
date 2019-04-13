@@ -38,7 +38,7 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-purple sidebar-mini">
         <div class="wrapper">
             <header class="main-header">
                 <!-- Logo -->
@@ -74,10 +74,10 @@
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Account Settings</a>
+                                            <a href="javascript:void(0)" class="btn btn-default btn-flat">Account Settings</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Logout</a>
+                                            <a href="javascript:void(0)" class="btn btn-info btn-flat btn-logout">Logout</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -147,6 +147,14 @@
         @csrf
         @method('delete')
     </form>
+
+    @guest
+
+    @else
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+    @endguest
 
     <!-- ./wrapper -->
     <!-- jQuery 3 -->

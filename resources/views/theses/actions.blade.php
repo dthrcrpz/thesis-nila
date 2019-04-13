@@ -11,42 +11,65 @@
 	<div class="row">
 		<!-- left column -->
 		<div class="col-md-12">
-			<!-- general form elements -->
 			<div class="box box-primary">
-				<!-- /.box-header -->
-				<!-- form start -->
-				<form role="form" method="post" action="/theses" enctype="multipart/form-data">
-					@csrf
-					<div class="box-body">
-						<div class="form-group">
-							<label for="title">Title</label>
-							<input type="text" class="form-control" name="title" id="title" required placeholder="Enter title">
+				@if ($create)
+					<form role="form" method="post" action="/theses" enctype="multipart/form-data">
+						@csrf
+						<div class="box-body">
+							<div class="form-group">
+								<label for="title">Title</label>
+								<input type="text" class="form-control" name="title" id="title" required placeholder="Enter title">
+							</div>
+							<div class="form-group">
+								<label for="year">Year</label>
+								<input type="number" max="2099" min="2000" class="form-control" name="year" id="year" required placeholder="Enter year">
+							</div>
+							<div class="form-group">
+								<label for="authors">Authors (separate by comma)</label>
+								<textarea class="form-control" name="authors" id="authors" required placeholder="Enter authors (e.g. John Doe, Will Smith, Jane Doe)"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="abstract">Abstract File</label>
+								<input type="file" id="abstract" name="abstract" required>
+								<p class="help-block">You can only upload docx or pdf files.</p>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="year">Year</label>
-							<input type="text" class="form-control" name="year" id="year" required placeholder="Enter year">
+						<!-- /.box-body -->
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
-						<div class="form-group">
-							<label for="authors">Authors (separate by comma)</label>
-							<textarea class="form-control" name="authors" id="authors" required placeholder="Enter authors (e.g. John Doe, Will Smith, Jane Doe)"></textarea>
+					</form>
+				@else
+					<form role="form" method="post" action="/theses/{{ $thesis->id }}" enctype="multipart/form-data">
+						@csrf
+						@method('patch')
+						<div class="box-body">
+							<div class="form-group">
+								<label for="title">Title</label>
+								<input type="text" class="form-control" name="title" id="title" value="{{ $thesis->title }}" required placeholder="Enter title">
+							</div>
+							<div class="form-group">
+								<label for="year">Year</label>
+								<input type="number" max="2099" min="2000" class="form-control" name="year" id="year" value="{{ $thesis->year }}" required placeholder="Enter year">
+							</div>
+							<div class="form-group">
+								<label for="authors">Authors (separate by comma)</label>
+								<textarea class="form-control" name="authors" id="authors" required placeholder="Enter authors (e.g. John Doe, Will Smith, Jane Doe)">{{ $thesis->authors }}</textarea>
+							</div>
+							<div class="form-group">
+								<label for="abstract">Abstract File (leave blank if you don't want to update this)</label>
+								<input type="file" id="abstract" name="abstract">
+								<p class="help-block">You can only upload docx or pdf files.</p>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="abstract">Abstract File</label>
-							<input type="file" id="abstract" name="abstract" required>
-							<p class="help-block">You can only upload docx or pdf files.</p>
+						<!-- /.box-body -->
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
 						</div>
-					</div>
-					<!-- /.box-body -->
-					<div class="box-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</div>
-				</form>
+					</form>
+				@endif
 			</div>
-			<!-- /.box -->
 		</div>
-		<!--/.col (left) -->
 	</div>
-	<!-- /.row -->
 </section>
-<!-- /.content -->
 @endsection

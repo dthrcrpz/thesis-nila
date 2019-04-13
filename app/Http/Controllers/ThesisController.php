@@ -85,19 +85,47 @@ class ThesisController extends Controller
      */
     public function edit(Research $thesis)
     {
-        //
+        $title = 'Edit Thesis';
+        $create = false;
+        return view('theses.actions', compact('create', 'title', 'thesis'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $r
      * @param  \App\Research  $research
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Research $thesis)
+    public function update(Request $r, Research $thesis)
     {
-        //
+        $this->validate($r, [
+            'title' => 'required',
+            'year' => 'required',
+            'authors' => 'required',
+            'abstract' => 'sometimes|mimes:pdf,docx',
+        ]);
+
+        $thesis->update([
+            'title' => $r->title,
+            'year' => $r->year,
+            'authors' => $r->authors,
+        ]);
+
+        if ($r->hasFile('abstract')) {
+            $file = $r->file('abstract');
+            $name = $file->getClientOriginalName();
+            $filePath = 'abstracts/' . $name;
+            Storage::disk('s3')->put($filePath, file_get_contents($file), 'public');
+            $uploadedFile = Storage::disk('s3')->url($filePath);
+
+            $thesis->update([
+                'abstract' => $uploadedFile,
+            ]);
+        }
+
+        session()->flash('message', 'Thesis has been updated.');
+        return back();
     }
 
     /**

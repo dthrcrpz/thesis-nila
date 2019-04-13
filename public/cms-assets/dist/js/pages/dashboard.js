@@ -7,6 +7,10 @@ $('.confirm-delete').click(function () {
   $('#delete-form').submit()
 })
 
+$('.btn-logout').click(function () {
+  $('#logout-form').submit()
+})
+
 /*
  * Author: Abdullah A Almsaeed
  * Date: 4 Jan 2014

@@ -32,6 +32,7 @@
 								<td>{{ $thesis->year }}</td>
 								<td>
 									<button type="button" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View Details</button>
+									<a href="/theses/{{ $thesis->id }}/edit" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
 									<button type="button" data-url="/theses/{{ $thesis->id }}" class="btn btn-delete btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i> Delete</button>
 								</td>
 							</tr>
