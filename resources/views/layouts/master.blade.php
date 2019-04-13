@@ -96,7 +96,9 @@
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="{{ setActive('/') }}"><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                         <li class="{{ setActive('theses') }}"><a href="/theses"><i class="fa fa-book"></i> <span>Theses</span></a></li>
+                        @if (auth()->user()->role == 0)
                         <li class="{{ setActive('users') }}"><a href="/users"><i class="fa fa-users"></i> <span>Users</span></a></li>
+                        @endif
                     </ul>
                 </section>
                 <!-- /.sidebar -->
