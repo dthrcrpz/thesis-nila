@@ -98,7 +98,6 @@
                         <li class="{{ setActive('theses') }}"><a href="/theses"><i class="fa fa-book"></i> <span>Theses</span></a></li>
                         @if (auth()->user()->role == 0)
                         <li class="{{ setActive('users') }}"><a href="/users"><i class="fa fa-users"></i> <span>Users</span></a></li>
-                        <li class="{{ setActive('reporting') }}"><a href="/reporting"><i class="fa fa-list-alt"></i> <span>Reporting</span></a></li>
                         @endif
                     </ul>
                 </section>

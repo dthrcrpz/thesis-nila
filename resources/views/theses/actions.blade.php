@@ -31,7 +31,7 @@
 							<div class="form-group">
 								<label for="abstract">Abstract File</label>
 								<input type="file" id="abstract" name="abstract" required>
-								<p class="help-block">You can only upload docx or pdf files.</p>
+								<p class="help-block">You can only upload docx>
 							</div>
 						</div>
 						<!-- /.box-body -->
@@ -59,7 +59,7 @@
 							<div class="form-group">
 								<label for="abstract">Abstract File (leave blank if you don't want to update this)</label>
 								<input type="file" id="abstract" name="abstract">
-								<p class="help-block">You can only upload docx or pdf files.</p>
+								<p class="help-block">You can only upload docx files.</p>
 							</div>
 						</div>
 						<!-- /.box-body -->

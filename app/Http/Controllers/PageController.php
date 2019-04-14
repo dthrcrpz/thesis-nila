@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Research;
+use App\User;
 
 class PageController extends Controller
 {
     public function index () {
     	$title = 'Dashboard';
-    	return view('index', compact('title'));
+    	$thesesCount = Research::count();
+    	$usersCount = User::count();
+    	return view('index', compact('title', 'thesesCount', 'usersCount'));
     }
 
     public function changePassword () {

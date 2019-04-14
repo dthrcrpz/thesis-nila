@@ -5,7 +5,7 @@ $('.btn-view').click(function () {
   $('.info-authors').html(data.authors)
 
   $('.info-abstract-link').html(data.abstract)
-  $('.info-abstract-link').attr('href', data.abstract)
+  $('.info-abstract-link').attr('href', '/download-thesis/' + data.id)
 
   $('.info-total-downloads').html(data.title)
 })

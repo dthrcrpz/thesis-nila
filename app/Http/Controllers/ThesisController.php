@@ -44,7 +44,7 @@ class ThesisController extends Controller
             'title' => 'required',
             'year' => 'required',
             'authors' => 'required',
-            'abstract' => 'required|mimes:pdf,docx',
+            'abstract' => 'required|mimes:docx',
         ]);
 
         if ($r->hasFile('abstract')) {
@@ -103,7 +103,7 @@ class ThesisController extends Controller
             'title' => 'required',
             'year' => 'required',
             'authors' => 'required',
-            'abstract' => 'sometimes|mimes:pdf,docx',
+            'abstract' => 'sometimes|mimes:docx',
         ]);
 
         $thesis->update([
@@ -139,5 +139,17 @@ class ThesisController extends Controller
         $thesis->delete();
         session()->flash('message', 'Thesis has been deleted');
         return back();   
+    }
+
+    public function download (Research $thesis) {
+        $thesis->update([
+            'total_downloads' => $thesis->total_downloads + 1
+        ]);
+        session()->put('link', $thesis->abstract);
+
+        // return response()->download($thesis->abstract);
+        return response()->streamDownload(function () {
+            echo file_get_contents(session('link'));
+        }, $thesis->title . '.docx');
     }
 }

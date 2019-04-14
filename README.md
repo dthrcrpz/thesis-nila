@@ -1,6 +1,6 @@
 Notes:
 
 {{-- My account --}}
-CRUD for users
+{{-- CRUD for users --}}
 Reporting
 Fix dashboard

@@ -24,6 +24,7 @@
 							<tr>
 								<th>Title</th>
 								<th>Year</th>
+								<th>Total Downloads</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -32,6 +33,7 @@
 							<tr>
 								<td>{{ $thesis->title }}</td>
 								<td>{{ $thesis->year }}</td>
+								<td>{{ $thesis->total_downloads }}</td>
 								<td>
 									<button type="button" class="btn btn-success btn-sm btn-view" data-toggle="modal" data-target="#view-modal" data-data="{{ $thesis }}"><i class="fa fa-eye"></i> View Details</button>
 									@if (auth()->user()->role == 0)
