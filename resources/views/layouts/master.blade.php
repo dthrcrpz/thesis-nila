@@ -74,7 +74,7 @@
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="/my-account" class="btn btn-default btn-flat">My Account</a>
+                                            <a href="/change-password" class="btn btn-default btn-flat">Change Password</a>
                                         </div>
                                         <div class="pull-right">
                                             <a href="javascript:void(0)" class="btn btn-info btn-flat btn-logout">Logout</a>

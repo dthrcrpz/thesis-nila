@@ -10,4 +10,9 @@ class PageController extends Controller
     	$title = 'Dashboard';
     	return view('index', compact('title'));
     }
+
+    public function changePassword () {
+    	$title = 'Change Password';
+    	return view('change-password', compact('title'));
+    }
 }
