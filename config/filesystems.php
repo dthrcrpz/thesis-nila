@@ -57,10 +57,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
+            'key' => env('AWS_ACCESS_KEY_ID', 'AKIAJLRGQRXR76DKBDTQ'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY', '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'),
+            'region' => env('AWS_DEFAULT_REGION', 'ap-southeast-1'),
+            'bucket' => env('AWS_BUCKET', 'thesis-book-archiving'),
             'url' => env('AWS_URL'),
         ],
 
