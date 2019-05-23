@@ -59,7 +59,7 @@
                 </form>
                 <br>
                 <!-- /.social-auth-links -->
-                Don't have an account? <a href="/register" class="text-center">Click here to register.</a>
+                Don't have an account? <a href="/register" class="text-center">Click here to register</a> or <a href="/">Login as Guest</a>
             </div>
             <!-- /.login-box-body -->
         </div>
