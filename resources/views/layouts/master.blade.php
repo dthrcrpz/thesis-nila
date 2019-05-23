@@ -78,7 +78,7 @@
                                     <li class="user-footer">
                                         <div class="pull-left">
                                             @if (auth()->user()->name != 'Guest')
-                                            <a href="/change-password" class="btn btn-default btn-flat">Change change-passwordord</a>
+                                            <a href="/change-password" class="btn btn-default btn-flat">Change Password</a>
                                             @endif
                                         </div>
                                         <div class="pull-right">
