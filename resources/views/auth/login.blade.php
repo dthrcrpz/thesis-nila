@@ -36,14 +36,14 @@
             <!-- /.login-logo -->
             <div class="login-box-body">
                 <p class="login-box-msg">Authentication</p>
-                <form action="{{ route('login') }}" method="post">
+                <form action="{{ route('login') }}" method="post" id="login-form">
                     @csrf
                     <div class="form-group has-feedback">
-                        <input type="email" class="form-control" placeholder="Email" name="email">
+                        <input type="email" class="form-control login-email" placeholder="Email" name="email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control login-password" placeholder="Password" name="password">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     @if (session()->has('login-error'))
@@ -59,7 +59,7 @@
                 </form>
                 <br>
                 <!-- /.social-auth-links -->
-                Don't have an account? <a href="/register" class="text-center">Click here to register</a> or <a href="/">Login as Guest</a>
+                Don't have an account? <a href="/register" class="text-center">Click here to register</a> or <a href="javascript:void(0)" class="guest-login">Login as Guest</a>
             </div>
             <!-- /.login-box-body -->
         </div>
@@ -78,6 +78,12 @@
         increaseArea: '20%' /* optional */
         });
         });
+
+        $('.guest-login').click(function () {
+            $('.login-email').val('guest@guest.com')
+            $('.login-password').val('password')
+            $('#login-form').submit()
+        })
         </script>
     </body>
 </html>

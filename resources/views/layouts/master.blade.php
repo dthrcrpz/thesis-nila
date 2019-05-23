@@ -70,12 +70,16 @@
                                         <img src="/logo.png" class="img-circle" alt="User Image">
                                         <p>
                                             {{ (auth()->check()) ? auth()->user()->name : '' }}
+                                            @if (auth()->user()->name != 'Guest')
                                             <small>{{ (auth()->check() && auth()->user()->role == 0) ? 'Admin' : 'Student' }}</small>
+                                            @endif
                                         </p>
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="/change-password" class="btn btn-default btn-flat">Change Password</a>
+                                            @if (auth()->user()->name != 'Guest')
+                                            <a href="/change-password" class="btn btn-default btn-flat">Change change-passwordord</a>
+                                            @endif
                                         </div>
                                         <div class="pull-right">
                                             <a href="javascript:void(0)" class="btn btn-info btn-flat btn-logout">Logout</a>

@@ -23,11 +23,13 @@
 						</thead>
 						<tbody>
 							@foreach ($users as $user)
+								@if ($user->name != 'Guest')
 								<tr>
 									<td>{{ $user->name }}</td>
 									<td>{{ $user->email }}</td>
 									<td>{{ $user->created_at }}</td>
 								</tr>
+								@endif
 							@endforeach
 						</tbody>
 						<tfoot>
