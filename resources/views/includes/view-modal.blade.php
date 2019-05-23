@@ -10,7 +10,9 @@
             	<b>Title: </b><div class="info-title"></div>
             	<b>Year: </b><div class="info-year"></div>
             	<b>Authors: </b><div class="info-authors"></div>
+                @if (auth()->check())
             	<b>Abstract Link: </b><a href="#" class="info-abstract-link"></a> <br><br>
+                @endif
             </div>
         </div>
     </div>

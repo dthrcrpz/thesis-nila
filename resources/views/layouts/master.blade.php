@@ -58,18 +58,19 @@
                         <ul class="nav navbar-nav">
                             
                             <!-- User Account: style can be found in dropdown.less -->
+                            @if (auth()->check())
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="/logo.png" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">{{ auth()->user()->name }}</span>
+                                    <span class="hidden-xs">{{ (auth()->check()) ? auth()->user()->name : '' }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="/logo.png" class="img-circle" alt="User Image">
                                         <p>
-                                            {{ auth()->user()->name }}
-                                            <small>{{ (auth()->user()->role == 0) ? 'Admin' : 'Student' }}</small>
+                                            {{ (auth()->check()) ? auth()->user()->name : '' }}
+                                            <small>{{ (auth()->check() && auth()->user()->role == 0) ? 'Admin' : 'Student' }}</small>
                                         </p>
                                     </li>
                                     <li class="user-footer">
@@ -82,6 +83,7 @@
                                     </li>
                                 </ul>
                             </li>
+                            @endif
                             <!-- Control Sidebar Toggle Button -->
                         </ul>
                     </div>
@@ -96,7 +98,7 @@
                         <li class="header">MAIN NAVIGATION</li>
                         <li class="{{ setActive('/') }}"><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                         <li class="{{ setActive('theses') }}"><a href="/theses"><i class="fa fa-book"></i> <span>Theses</span></a></li>
-                        @if (auth()->user()->role == 0)
+                        @if (auth()->check() && auth()->user()->role == 0)
                         <li class="{{ setActive('users') }}"><a href="/users"><i class="fa fa-users"></i> <span>Users</span></a></li>
                         @endif
                     </ul>

@@ -13,7 +13,7 @@
 			<!-- /.box -->
 			<div class="box">
 				<div class="box-header">
-					@if (auth()->user()->role == 0)
+					@if (auth()->check() && auth()->user()->role == 0)
 					<a href="/theses/create" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
 					@endif
 				</div>
@@ -36,7 +36,7 @@
 								<td>{{ $thesis->total_downloads }}</td>
 								<td>
 									<button type="button" class="btn btn-success btn-sm btn-view" data-toggle="modal" data-target="#view-modal" data-data="{{ $thesis }}"><i class="fa fa-eye"></i> View Details</button>
-									@if (auth()->user()->role == 0)
+									@if (auth()->check() && auth()->user()->role == 0)
 									<a href="/theses/{{ $thesis->id }}/edit" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
 									<button type="button" data-url="/theses/{{ $thesis->id }}" class="btn btn-delete btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-trash"></i> Delete</button>
 									@endif

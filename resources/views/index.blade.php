@@ -24,7 +24,7 @@
                     <a href="/theses" class="small-box-footer">See All <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            @if (auth()->user()->role == 0)
+            @if (auth()->check() && auth()->user()->role == 0)
             <div class="col-lg-6 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-yellow">
