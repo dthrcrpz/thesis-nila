@@ -37,6 +37,14 @@
         <![endif]-->
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+        <style type="text/css">
+            @media (max-width: 768px) {
+                .skin-purple .main-header .navbar .dropdown-menu li a {
+                    color: #000 !important;
+                }
+            }
+        </style>
     </head>
     <body class="hold-transition skin-purple sidebar-mini">
         <div class="wrapper">
